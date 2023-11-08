@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>inicial</Filter>
+    </ClCompile>
+    <ClCompile Include="Calculadora.cpp">
+      <Filter>inicial\Calculadora</Filter>
+    </ClCompile>
+    <ClCompile Include="Ordenacion.cpp">
+      <Filter>inicial\Ordenacion</Filter>
+    </ClCompile>
+    <ClCompile Include="funcionesCalculadora.cpp">
+      <Filter>Recursos\Calculadora</Filter>
+    </ClCompile>
+    <ClCompile Include="funcionesOrdenacion.cpp">
+      <Filter>Recursos\Ordenacion</Filter>
+    </ClCompile>
+    <ClCompile Include="funcionesPunteros.cpp">
+      <Filter>Recursos\Puntesros</Filter>
+    </ClCompile>
+    <ClCompile Include="MainPunteros.cpp">
+      <Filter>inicial\Punteros</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="inicial">
+      <UniqueIdentifier>{d2427f4c-e5c5-4afd-a217-11aabe1b3dc3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Recursos">
+      <UniqueIdentifier>{4c975540-3225-45a1-957b-facbd7bef298}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inicial\Calculadora">
+      <UniqueIdentifier>{6a8a211b-9bee-4911-a77a-91d18d45115c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inicial\Ordenacion">
+      <UniqueIdentifier>{88ab9e66-4d15-4802-86ec-e66a18f9d68b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Recursos\Calculadora">
+      <UniqueIdentifier>{18e011ca-75cd-4e58-9bca-896567a8fc20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Recursos\Ordenacion">
+      <UniqueIdentifier>{587c17e4-5d5b-446a-8992-a4569b71a251}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inicial\Punteros">
+      <UniqueIdentifier>{e5c0fef4-3e67-4222-a1a7-39a4ad34baa5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Recursos\Puntesros">
+      <UniqueIdentifier>{7f0d7a9d-7eec-4b93-9309-f8ac444f70f1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MainCalculadora.h">
+      <Filter>Recursos\Calculadora</Filter>
+    </ClInclude>
+    <ClInclude Include="funcionesCalculadora.h">
+      <Filter>Recursos\Calculadora</Filter>
+    </ClInclude>
+    <ClInclude Include="funcionesOrdenacion.h">
+      <Filter>Recursos\Ordenacion</Filter>
+    </ClInclude>
+    <ClInclude Include="MainOrdenacion.h">
+      <Filter>Recursos\Ordenacion</Filter>
+    </ClInclude>
+    <ClInclude Include="funcionesPunteros.h">
+      <Filter>Recursos\Puntesros</Filter>
+    </ClInclude>
+    <ClInclude Include="MainPunteros.h">
+      <Filter>Recursos\Puntesros</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
