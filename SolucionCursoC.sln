@@ -35,6 +35,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Login", "Dia 02\Login\Login
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DiasDeLaSemana", "Dia 03\DiasDeLaSemana\DiasDeLaSemana\DiasDeLaSemana.vcxproj", "{AFA0B515-518C-4698-9036-19CE7FE0F43D}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LoginTresIntentos", "LoginTresIntentos\LoginTresIntentos.vcxproj", "{1500CB3D-07C2-476D-B46B-0E1971962D60}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -139,6 +141,14 @@ Global
 		{AFA0B515-518C-4698-9036-19CE7FE0F43D}.Release|x64.Build.0 = Release|x64
 		{AFA0B515-518C-4698-9036-19CE7FE0F43D}.Release|x86.ActiveCfg = Release|Win32
 		{AFA0B515-518C-4698-9036-19CE7FE0F43D}.Release|x86.Build.0 = Release|Win32
+		{1500CB3D-07C2-476D-B46B-0E1971962D60}.Debug|x64.ActiveCfg = Debug|x64
+		{1500CB3D-07C2-476D-B46B-0E1971962D60}.Debug|x64.Build.0 = Debug|x64
+		{1500CB3D-07C2-476D-B46B-0E1971962D60}.Debug|x86.ActiveCfg = Debug|Win32
+		{1500CB3D-07C2-476D-B46B-0E1971962D60}.Debug|x86.Build.0 = Debug|Win32
+		{1500CB3D-07C2-476D-B46B-0E1971962D60}.Release|x64.ActiveCfg = Release|x64
+		{1500CB3D-07C2-476D-B46B-0E1971962D60}.Release|x64.Build.0 = Release|x64
+		{1500CB3D-07C2-476D-B46B-0E1971962D60}.Release|x86.ActiveCfg = Release|Win32
+		{1500CB3D-07C2-476D-B46B-0E1971962D60}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -156,6 +166,7 @@ Global
 		{434B1C65-1DE0-4600-9EB1-0EC03B1EF163} = {2FF346C9-511B-4696-BD89-76B74FB0E451}
 		{EF12C5D5-D92A-488E-B35B-811247C11A02} = {AE15038C-8D18-4ED7-89AD-6149479566DE}
 		{AFA0B515-518C-4698-9036-19CE7FE0F43D} = {C1E9D5D0-B715-4098-9CB5-E727BF371BF4}
+		{1500CB3D-07C2-476D-B46B-0E1971962D60} = {C1E9D5D0-B715-4098-9CB5-E727BF371BF4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BD3822D1-D806-4DF7-9C0C-AD739A0324B0}
