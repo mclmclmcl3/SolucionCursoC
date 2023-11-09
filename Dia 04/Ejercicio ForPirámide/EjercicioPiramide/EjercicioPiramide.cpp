@@ -1,5 +1,7 @@
 
 #include <iostream>
+#include <thread>
+#include <chrono>
 
 using namespace std;
 
@@ -18,6 +20,7 @@ int main()
 		{
 			cout << "*";
 			longitud--;
+			this_thread::sleep_for(chrono::milliseconds(100));
 		}
 		cout << endl;
 	}
