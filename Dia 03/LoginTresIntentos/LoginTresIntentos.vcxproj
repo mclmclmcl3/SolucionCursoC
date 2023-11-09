@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{1500cb3d-07c2-476d-b46b-0e1971962d60}</ProjectGuid>
+    <ProjectGuid>{4016C0B6-A10D-490C-A955-39CD956FB86C}</ProjectGuid>
     <RootNamespace>LoginTresIntentos</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
