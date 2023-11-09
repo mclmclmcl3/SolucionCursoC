@@ -22,8 +22,8 @@ int main() {
 
 
 	// info DSN "DSN=MySQL;UID=pep;PWD=123456;DATABASE=base;SERVER=localhost"
-	//const char* connectionString = "DSN=MySQL;UID=root;PWD=root;DATABASE=CursoC;SERVER=localhost;DRIVER={MySQL ODBC 8.2.0 Driver}; PORT=3306";
-	const char* connectionString = "Server=localhost;Port=3306;Database=CursoC;User=root;Password=root";
+	const char* connectionString = "DSN=MySQL;UID=root;PWD=root;DATABASE=CursoC;SERVER=localhost;DRIVER={MySQL ODBC 8.2.0 Driver}; PORT=3306";
+	// const char* connectionString = "Server=localhost;Port=3306;Database=CursoC;User=root;Password=root";
 	SQLDriverConnect(hDbc, NULL, (SQLWCHAR*)connectionString, SQL_NTS, NULL, 0, NULL, SQL_DRIVER_COMPLETE);
 
 
