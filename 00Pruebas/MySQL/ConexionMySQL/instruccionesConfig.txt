@@ -12,7 +12,7 @@ Configurar
 
 	Vinculador -> Entrada -> Dependencias adicionales
 		c:\Program Files\MYSQL\Connector c++ 8.2\lib64\vs14 => mysqlcppconn.lib
-		c:\Program Files\MYSQL\MYSQL Server 8.2\lib =>libbmysql.lib
+		c:\Program Files\MYSQL\MYSQL Server 8.2\lib => libmysql.lib
 
 	copiar en la carpeta raíz del proyecto:
 		c:\Program Files\MYSQL\Connector c++ 8.2\lib64\vs14 => mysqlcppconn.lib
