@@ -7,10 +7,7 @@
 
 using namespace std;
 int q_estado;
-// Configuracion de mysql => https://www.youtube.com/watch?v=gPcYDjWKutE
-// Post => https://www.youtube.com/watch?v=RIEe514Sxt8
-// Get => https://www.youtube.com/watch?v=z0pZ2e9aN6k
-// Completo => https://www.youtube.com/playlist?list=PLurnDCBwo4BcO-dMkFrzT7k9bPZcRKCQu
+
 
 struct datos {
 	int id;
