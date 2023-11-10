@@ -1,0 +1,29 @@
+https://dev.mysql.com/downloads/
+(instalar connector c++ 8.2 y MYSQL Server 8.2)
+
+Configurar
+   Proyecto + btn_dcho + propiedades
+
+	C/C++ -> General -> Directorios de inclusión adicionales
+		c:\Program Files\MYSQL\Connector c++ 8.2\include
+		c:\Program Files\MYSQL\MYSQL Server 8.2\include
+		c:\Program Files\MYSQL\Connector c++ 8.2\lib64
+		c:\Program Files\MYSQL\MYSQL Server 8.2\lib	
+
+	Vinculador -> Entrada -> Dependencias adicionales
+		c:\Program Files\MYSQL\Connector c++ 8.2\lib64\vs14 => mysqlcppconn.lib
+		c:\Program Files\MYSQL\MYSQL Server 8.2\lib =>libbmysql.lib
+
+	copiar en la carpeta raíz del proyecto:
+		c:\Program Files\MYSQL\Connector c++ 8.2\lib64\vs14 => mysqlcppconn.lib
+		c:\Program Files\MYSQL\MYSQL Server 8.2\lib =>libbmysql.dll
+		c:\Program Files\MYSQL\MYSQL Server 8.2\lib =>libbmysql.lib
+		
+	Opcionalmente te puede pedir, parece ser que no siempre:
+		C:\Program Files\MySQL\MySQL Connector C++ 8.2\lib64
+			libcrypto-1_1-x64.dll (no la tenía, la tuve que descargar)
+			libbssl-a_1-x64.dll (no la tenía, la tuve que descargar)
+			libcrypto-3-x64.dll
+			libssl-3-x64.dll
+			mysqlcppconn8-2-vs14.dll
+			mysqlcppconn-9-vs14.dll
