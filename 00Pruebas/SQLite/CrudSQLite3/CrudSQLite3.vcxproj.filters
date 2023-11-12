@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Archivos de origen">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Archivos de encabezado">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Archivos de recursos">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Archivos de origen\Ejemplos">
+      <UniqueIdentifier>{b82b90d5-55aa-416e-9cc6-477a6fea1ff6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Models">
+      <UniqueIdentifier>{eb822537-f0a2-499d-9563-477622848c90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Models">
+      <UniqueIdentifier>{d10b118c-4e63-445e-9d23-c00c771a43ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Data">
+      <UniqueIdentifier>{f741ed06-e260-40fd-8e0e-a7f439fd51bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Data">
+      <UniqueIdentifier>{771bfad3-5102-4a57-8939-0fdb4df04339}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Repositories">
+      <UniqueIdentifier>{fc2f0303-f7ad-42f6-98a3-901369ad553b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Repositories">
+      <UniqueIdentifier>{65d3fa7c-a0bd-4e4c-99b8-5eefd379ca1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\View">
+      <UniqueIdentifier>{f4aed6c6-56a5-473b-8086-54ffd9481235}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\View">
+      <UniqueIdentifier>{ea07a1b5-4cbb-448b-8a27-c8d43b54e0dd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="sqlite3.c">
+      <Filter>Archivos de recursos</Filter>
+    </ClCompile>
+    <ClCompile Include="Ejemplos\CrudSQLite_exec.cpp">
+      <Filter>Archivos de origen\Ejemplos</Filter>
+    </ClCompile>
+    <ClCompile Include="Ejemplos\CrudSQLite_Transacction.cpp">
+      <Filter>Archivos de origen\Ejemplos</Filter>
+    </ClCompile>
+    <ClCompile Include="Ejemplos\CrudSQLite_Transacction_Metodos.cpp">
+      <Filter>Archivos de origen\Ejemplos</Filter>
+    </ClCompile>
+    <ClCompile Include="Ejemplos\CrudSQLite3.cpp">
+      <Filter>Archivos de origen\Ejemplos</Filter>
+    </ClCompile>
+    <ClCompile Include="Ejemplos\CrudSQLite3Prepare.cpp">
+      <Filter>Archivos de origen\Ejemplos</Filter>
+    </ClCompile>
+    <ClCompile Include="Usuario.cpp">
+      <Filter>Archivos de origen\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="Data\Conexion.cpp">
+      <Filter>Archivos de origen\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Repositories\UsuarioRepository.cpp">
+      <Filter>Archivos de origen\Repositories</Filter>
+    </ClCompile>
+    <ClCompile Include="View\UsuarioView.cpp">
+      <Filter>Archivos de origen\View</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Usuario.h">
+      <Filter>Archivos de encabezado\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Data\Conexion.h">
+      <Filter>Archivos de encabezado\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Repositories\UsuarioRepository.h">
+      <Filter>Archivos de encabezado\Repositories</Filter>
+    </ClInclude>
+    <ClInclude Include="View\UsuarioView.h">
+      <Filter>Archivos de encabezado\View</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

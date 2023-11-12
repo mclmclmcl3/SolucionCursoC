@@ -55,6 +55,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EjercicioFor", "Dia 05\Ejer
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MediaConArreglos", "Dia 05\MediaConArreglos\MediaConArreglos\MediaConArreglos.vcxproj", "{97211BF1-83DC-4A31-9061-EBD93D400DF9}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CrudSQLite3", "00Pruebas\SQLite\CrudSQLite3\CrudSQLite3.vcxproj", "{8F485373-7422-4022-8DC7-F43687FE26FC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -223,6 +225,14 @@ Global
 		{97211BF1-83DC-4A31-9061-EBD93D400DF9}.Release|x64.Build.0 = Release|x64
 		{97211BF1-83DC-4A31-9061-EBD93D400DF9}.Release|x86.ActiveCfg = Release|Win32
 		{97211BF1-83DC-4A31-9061-EBD93D400DF9}.Release|x86.Build.0 = Release|Win32
+		{8F485373-7422-4022-8DC7-F43687FE26FC}.Debug|x64.ActiveCfg = Debug|x64
+		{8F485373-7422-4022-8DC7-F43687FE26FC}.Debug|x64.Build.0 = Debug|x64
+		{8F485373-7422-4022-8DC7-F43687FE26FC}.Debug|x86.ActiveCfg = Debug|Win32
+		{8F485373-7422-4022-8DC7-F43687FE26FC}.Debug|x86.Build.0 = Debug|Win32
+		{8F485373-7422-4022-8DC7-F43687FE26FC}.Release|x64.ActiveCfg = Release|x64
+		{8F485373-7422-4022-8DC7-F43687FE26FC}.Release|x64.Build.0 = Release|x64
+		{8F485373-7422-4022-8DC7-F43687FE26FC}.Release|x86.ActiveCfg = Release|Win32
+		{8F485373-7422-4022-8DC7-F43687FE26FC}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -248,6 +258,7 @@ Global
 		{7D876C0B-92AD-4B0B-A730-7D22676DD599} = {2FF346C9-511B-4696-BD89-76B74FB0E451}
 		{52B7710C-AC9F-4D8D-9BE9-3CADE150A806} = {5DB9201F-06C0-4A2D-93AF-D68C4B763875}
 		{97211BF1-83DC-4A31-9061-EBD93D400DF9} = {5DB9201F-06C0-4A2D-93AF-D68C4B763875}
+		{8F485373-7422-4022-8DC7-F43687FE26FC} = {2FF346C9-511B-4696-BD89-76B74FB0E451}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BD3822D1-D806-4DF7-9C0C-AD739A0324B0}
