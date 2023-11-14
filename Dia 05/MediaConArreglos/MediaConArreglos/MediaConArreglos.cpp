@@ -14,7 +14,7 @@ int main()
         cout << endl;
         suma += notas[i];
     }
-
+    
     cout << "La nota media es: " << suma / 5 << endl;
     
     system("pause");
