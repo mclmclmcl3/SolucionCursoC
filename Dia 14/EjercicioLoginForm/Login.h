@@ -36,9 +36,9 @@ namespace EjercicioLoginForm {
 	private: System::Windows::Forms::TextBox^ txtPass;
 	private: System::Windows::Forms::Label^ lblPass;
 	private:
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
-	#pragma region Windows Form Designer generated code
+#pragma region Windows Form Designer generated code
 		void InitializeComponent(void)
 		{
 			this->btnLogin = (gcnew System::Windows::Forms::Button());
@@ -53,7 +53,7 @@ namespace EjercicioLoginForm {
 			this->btnLogin->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->btnLogin->Location = System::Drawing::Point(154, 223);
-			this->btnLogin->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->btnLogin->Margin = System::Windows::Forms::Padding(4);
 			this->btnLogin->Name = L"btnLogin";
 			this->btnLogin->Size = System::Drawing::Size(83, 34);
 			this->btnLogin->TabIndex = 0;
@@ -78,7 +78,7 @@ namespace EjercicioLoginForm {
 			this->txtMail->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->txtMail->Location = System::Drawing::Point(43, 70);
-			this->txtMail->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->txtMail->Margin = System::Windows::Forms::Padding(4);
 			this->txtMail->Name = L"txtMail";
 			this->txtMail->Size = System::Drawing::Size(300, 26);
 			this->txtMail->TabIndex = 2;
@@ -117,42 +117,64 @@ namespace EjercicioLoginForm {
 			this->Controls->Add(this->btnLogin);
 			this->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"Login";
 			this->Text = L"Login";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
-	#pragma endregion
+#pragma endregion
 
 
-	Void btnLogin_Click(Object^ sender, System::EventArgs^ e) 
-	{
-		String^ email = txtMail->Text;
-		String^ pass = txtPass->Text;
-
-		if (email != "" && pass != "")
+		Void btnLogin_Click(Object^ sender, System::EventArgs^ e)
 		{
-			// Convertir System::String^ a std::string
-			string emailStd = msclr::interop::marshal_as<string>(email);
+			String^ email = txtMail->Text;
+			String^ pass = txtPass->Text;
 
-			// Convertir System::String^ a std::string
-			string pasStd = msclr::interop::marshal_as<string>(pass);
+			if (email != "" && pass != "")
+			{
+				// Convertir System::String^ a std::string
+				string emailStd = msclr::interop::marshal_as<string>(email);
 
-			Usuario* user = new Usuario();
-			user->SetEmail(emailStd);
-			user->SetPass(pasStd);
+				// Convertir System::String^ a std::string
+				string pasStd = msclr::interop::marshal_as<string>(pass);
 
-			Inicio^ inicio = gcnew Inicio(user);
 
-			this->Visible = false;
-			inicio->ShowDialog();
-			this->Visible = true;
+				Grabar(emailStd, pasStd);
 
-			delete user;
+				Usuario* user = new Usuario();
+				user->SetEmail(emailStd);
+				user->SetPass(pasStd);
+
+				Inicio^ inicio = gcnew Inicio(user);
+
+				this->Visible = false;
+				inicio->ShowDialog();
+				this->Visible = true;
+
+				delete user;
+			}
+
+		}
+		void Grabar(string email, string pass)
+		{
+			ofstream file(email + ".txt");
+			if (file.is_open())
+			{
+				// Escribir el correo electrónico y la contraseña en el archivo
+				file << "Email: " << email << "\n";
+				file << "Pass: " << pass << "\n";
+
+			}
+			else
+			{
+				MessageBox::Show("No se a podido abir el archivo para escritura.\n");
+			}
+
+			file.close();
 		}
 
-	}
+
 };
 }
