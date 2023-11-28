@@ -85,7 +85,7 @@ public:
 	void InsertLibro(Libro _libro) { StockLibros.push_back(_libro); }
 
 	// Muestro el estado del carrito
-	void MostrarCarrito()
+	void ListadoCarrito()
 	{
 		system("cls");
 		int longitud = StockLibros.size();
@@ -186,7 +186,7 @@ int main() {
 	}
 
 	// Mostrar el carrito y calcular el importe total con IVA
-	carrito.MostrarCarrito();
+	carrito.ListadoCarrito();
 
 	// Crear factura
 	carrito.Factura();
