@@ -43,6 +43,7 @@ namespace MiFormClase3 {
 	private: System::Windows::Forms::CheckBox^ chNaranjas;
 	private: System::Windows::Forms::CheckBox^ chPapayas;
 	private: System::Windows::Forms::Button^ btnFrutas;
+	private: System::Windows::Forms::Label^ lblSuma;
 
 	private: System::ComponentModel::Container^ components;
 
@@ -63,6 +64,7 @@ namespace MiFormClase3 {
 			   this->chNaranjas = (gcnew System::Windows::Forms::CheckBox());
 			   this->chPapayas = (gcnew System::Windows::Forms::CheckBox());
 			   this->btnFrutas = (gcnew System::Windows::Forms::Button());
+			   this->lblSuma = (gcnew System::Windows::Forms::Label());
 			   this->SuspendLayout();
 			   // 
 			   // txtNum1
@@ -201,11 +203,22 @@ namespace MiFormClase3 {
 			   this->btnFrutas->UseVisualStyleBackColor = true;
 			   this->btnFrutas->Click += gcnew System::EventHandler(this, &Inicio::btnFrutas_Click);
 			   // 
+			   // lblSuma
+			   // 
+			   this->lblSuma->AutoSize = true;
+			   this->lblSuma->Location = System::Drawing::Point(315, 170);
+			   this->lblSuma->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			   this->lblSuma->Name = L"lblSuma";
+			   this->lblSuma->Size = System::Drawing::Size(75, 19);
+			   this->lblSuma->TabIndex = 14;
+			   this->lblSuma->Text = L"Numero 1";
+			   // 
 			   // Inicio
 			   // 
 			   this->AutoScaleDimensions = System::Drawing::SizeF(9, 19);
 			   this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			   this->ClientSize = System::Drawing::Size(918, 693);
+			   this->Controls->Add(this->lblSuma);
 			   this->Controls->Add(this->btnFrutas);
 			   this->Controls->Add(this->chPapayas);
 			   this->Controls->Add(this->chNaranjas);
@@ -244,7 +257,7 @@ namespace MiFormClase3 {
 			int NumSuma1 = Convert::ToInt32(txtNum1->Text);
 			int NumSuma2 = Convert::ToInt32(txtNum2->Text);
 			int suma = NumSuma1 + NumSuma2;
-
+			
 			String^ todos = "\nNumeros introducidos: ";
 			for each (Control ^ Nintroducido in this->Controls)
 			{
