@@ -2,6 +2,7 @@
 
 #include <mysql.h>
 #include <Windows.h>
+#include <msclr/marshal_cppstd.h>
 
 namespace MySqlForm {
 
@@ -74,7 +75,20 @@ namespace MySqlForm {
 			{
 				conectar = mysql_init(0);
 				int puerto = 3306;
-				conectar = mysql_real_connect(conectar, "localhost", "root", "root", "CursoCPlusPlus", puerto, NULL, 0);
+
+				String^ servidor = "localhost";
+				String^ usuario = "root";
+				String^ pass = "root";
+				String^ nombreBaseDatos = "CursoCPlusPlus";
+
+				std::string servidorStr = msclr::interop::marshal_as<std::string>(servidor);
+				std::string usuarioStr = msclr::interop::marshal_as<std::string>(usuario);
+				std::string passStr = msclr::interop::marshal_as<std::string>(pass);
+				std::string nombreBaseDatosStr = msclr::interop::marshal_as<std::string>(nombreBaseDatos);
+
+
+				//conectar = mysql_real_connect(conectar, "localhost", "root", "root", "CursoCPlusPlus", puerto, NULL, 0);
+				conectar = mysql_real_connect(conectar, servidorStr.c_str(), usuarioStr.c_str(), passStr.c_str(), nombreBaseDatosStr.c_str(), puerto, NULL, 0);
 
 				if (!conectar) {
 					MessageBox::Show("No se a podido conectar");
