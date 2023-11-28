@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Archivos de origen">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Archivos de encabezado">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Archivos de recursos">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Views">
+      <UniqueIdentifier>{a2d02e07-28f8-48db-a006-fb7522a12adb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Models">
+      <UniqueIdentifier>{4f3e0a34-30a7-4d66-b01f-0b9a88e6ae55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Utilidades">
+      <UniqueIdentifier>{b2a8f19a-a71d-43c5-9ed2-40ce4843bcf7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Repositories">
+      <UniqueIdentifier>{40593ee1-3333-49eb-82cc-b55fd748775a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Conexiones">
+      <UniqueIdentifier>{0f0ca169-31e5-4769-abd5-e5ca24450883}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Inicio.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Utilidades\Permisos.cpp">
+      <Filter>Archivos de encabezado\Utilidades</Filter>
+    </ClCompile>
+    <ClCompile Include="Models\Libro.cpp">
+      <Filter>Archivos de encabezado\Models</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Views\FormLogin.h">
+      <Filter>Archivos de encabezado\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\Carrito.h">
+      <Filter>Archivos de encabezado\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\Facturacion.h">
+      <Filter>Archivos de encabezado\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\Libreria.h">
+      <Filter>Archivos de encabezado\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\Libro.h">
+      <Filter>Archivos de encabezado\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\Usuario.h">
+      <Filter>Archivos de encabezado\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Utilidades\CryptoUtils.h">
+      <Filter>Archivos de encabezado\Utilidades</Filter>
+    </ClInclude>
+    <ClInclude Include="Utilidades\Permisos.h">
+      <Filter>Archivos de encabezado\Utilidades</Filter>
+    </ClInclude>
+    <ClInclude Include="Repositories\UsuariosRepository.h">
+      <Filter>Archivos de encabezado\Repositories</Filter>
+    </ClInclude>
+    <ClInclude Include="Conexiones\LibrosDocument.h">
+      <Filter>Archivos de encabezado\Conexiones</Filter>
+    </ClInclude>
+    <ClInclude Include="Conexiones\UsuariosDocument.h">
+      <Filter>Archivos de encabezado\Conexiones</Filter>
+    </ClInclude>
+    <ClInclude Include="Views\PruebasRapidas.h">
+      <Filter>Archivos de encabezado\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="Views\FormLibreria.h">
+      <Filter>Archivos de encabezado\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="Repositories\LibrosRepository.h">
+      <Filter>Archivos de encabezado\Repositories</Filter>
+    </ClInclude>
+    <ClInclude Include="Views\FormCarrito.h">
+      <Filter>Archivos de encabezado\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\Login.h">
+      <Filter>Archivos de encabezado\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Conexiones\IDocument.h">
+      <Filter>Archivos de encabezado\Conexiones</Filter>
+    </ClInclude>
+    <ClInclude Include="Views\FormAdministrador.h">
+      <Filter>Archivos de encabezado\Views</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
