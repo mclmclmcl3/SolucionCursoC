@@ -36,9 +36,6 @@
     <ClCompile Include="Utilidades\Permisos.cpp">
       <Filter>Archivos de encabezado\Utilidades</Filter>
     </ClCompile>
-    <ClCompile Include="Models\Libro.cpp">
-      <Filter>Archivos de encabezado\Models</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Views\FormLogin.h">

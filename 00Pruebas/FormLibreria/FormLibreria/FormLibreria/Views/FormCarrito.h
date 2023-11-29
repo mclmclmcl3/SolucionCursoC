@@ -270,7 +270,9 @@ namespace FormLibreria {
 		}
 		Void btnComprar_Click(Object^ sender, EventArgs^ e)
 		{
-
+			login->GetUsuario().GetCarrito()->BorrarCarrito();
+			MessageBox::Show("Elemenots comprados");
+			this->Close();
 		}
 		Void FormCarrito_Load(Object^ sender, EventArgs^ e)
 		{

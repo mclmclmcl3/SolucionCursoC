@@ -24,7 +24,10 @@ public:
 		documento = new UsuariosDocument("Usuarios");
 	}
 	// Destructor
-	~UsuariosRepository() {}
+	~UsuariosRepository() 
+	{
+		documento = nullptr;
+	}
 
 	// Llamo
 	bool ExisteUsuario(const Usuario& usuario)

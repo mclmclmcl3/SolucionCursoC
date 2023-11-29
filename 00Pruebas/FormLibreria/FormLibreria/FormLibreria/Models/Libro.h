@@ -10,11 +10,6 @@
 /// 
 class Libro {
 private:
-    // para crear objetos con id consecutivo
-    static int miId;
-
-    // Campos
-    int id;
     std::string titulo;
     std::string autor;
     double precio;
@@ -23,19 +18,14 @@ public:
     // Constructor vacío para cuando elijo un libro.
     Libro() {}
 
-    // Inicializar el Constructor (No añado el Id, ya que es autoincremento)
+    // Inicializar el Constructor (No añado el Id, ya que es autoincremento) para nuevos
     Libro(const std::string& _titulo, const std::string& _autor, double _precio)
     {
-        miId++;
-
-        id = miId;
         titulo = _titulo;
         autor = _autor;
         precio = _precio;
     }
 
-    // Getter
-    int GetId() const { return id; }
     std::string GetTitulo() const { return titulo; }
     std::string GetAutor() const { return autor; }
     double GetPrecio() const { return precio; }
@@ -48,7 +38,7 @@ public:
     // este operador es para las busquedas, en otros lenguajes equivale
     // a equal
     bool operator==(const Libro& otroLibro) const {
-        return this->id == otroLibro.id;
+        return this->titulo == otroLibro.titulo;
     }
 };
 
