@@ -30,7 +30,7 @@ public:
 		carrito = _carrito;
 	}
 
-	~Facturacion() {}
+	~Facturacion() { carrito = nullptr; }
 
 	
 };

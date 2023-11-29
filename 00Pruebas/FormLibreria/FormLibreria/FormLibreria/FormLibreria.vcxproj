@@ -124,7 +124,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Inicio.cpp" />
-    <ClCompile Include="Models\Libro.cpp" />
     <ClCompile Include="Utilidades\Permisos.cpp" />
   </ItemGroup>
   <ItemGroup>

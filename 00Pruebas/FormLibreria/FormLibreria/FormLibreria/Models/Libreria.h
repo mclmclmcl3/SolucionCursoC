@@ -39,31 +39,37 @@ public:
 	}
 
 	// Destructor de Libreria
-	~Libreria() = default;
+	~Libreria()
+	{
+		login = nullptr;
+	}
 
 	std::vector<Libro> GetAllLibros()
 	{
-		// para hacer pruebas
-
-		std::vector<Libro> libros;
-		Libro libro1("Titulo1", "Autor1", 56);
-		Libro libro2("Titulo2", "Autor2", 43);
-		Libro libro3("Titulo3", "Autor3", 32);
-		Libro libro4("Titulo4", "Autor4", 55);
-		libros.push_back(libro1);
-		libros.push_back(libro2);
-		libros.push_back(libro3);
-		libros.push_back(libro4);
-
-		return libros;
-		//return _repo.GetAll();
+		return _repo.GetAll();
 	}
 
 	// Insertar libros
 	void InsertLibro(Libro _libro)
 	{
 		if (login->GetUsuario().GetPermiso() == permisoAdmin)
-			StockLibros.push_back(_libro);
+			_repo.RegistarLibro(_libro);
+	}
+
+	void BorrarLibro(Libro libro)
+	{
+		if (login->GetUsuario().GetPermiso() == permisoAdmin)
+		{
+			_repo.BorrarLibro(libro);
+		}
+	}
+
+	void ModificarLibro(Libro libro)
+	{
+		if (login->GetUsuario().GetPermiso() == permisoAdmin)
+		{
+			_repo.ModificarLibro(libro);
+		}
 	}
 
 };

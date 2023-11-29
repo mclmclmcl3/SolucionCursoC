@@ -18,7 +18,7 @@ public:
 		documento = new LibrosDocument("Libros");
 	}
 	// Destructor
-	~LibrosRepository() {}
+	~LibrosRepository() { documento = nullptr; }
 
 	// Conseguir todos los libros llamando a Librosdocument Leer
 	std::vector<Libro> GetAll()
@@ -48,5 +48,20 @@ public:
 
 		documento->EscribirLibros(libros);
 	}
+
+	void ModificarLibro(const Libro& libro)
+	{
+		std::vector<Libro> libros = documento->Leer();
+		for (size_t i = 0; i < libros.size(); ++i)
+		{
+			if (libros[i].GetTitulo() == libro.GetTitulo() && libros[i].GetAutor() == libro.GetAutor())
+			{
+				libros[i].SetPrecio(libro.GetPrecio());
+				break;
+			}
+		}
+		documento->EscribirLibros(libros);
+	}
+
 
 };
