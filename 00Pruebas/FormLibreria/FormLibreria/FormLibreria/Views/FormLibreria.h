@@ -399,35 +399,43 @@ namespace FormLibreria {
 		}
 		Void btnCarritoUsuario_Click(Object^ sender, EventArgs^ e)
 		{
-			String^ titulo = txtTitulo->Text;
-			String^ autor = txtAutor->Text;
-			String^ precio = txtPrecio->Text;
-
-			std::string tituloSTD = msclr::interop::marshal_as<string>(titulo);
-			std::string autorSTD = msclr::interop::marshal_as<string>(autor);
-
-			// Convertir de System::String a double
-			double precioSTD = 0.0;
-			if (Double::TryParse(precio, precioSTD))
+			if (login->GetUsuario().GetPermiso() != permisoAdmin)
 			{
-				// Conversión exitosa
-				Libro libro(tituloSTD, autorSTD, precioSTD);
-				Usuario usuario = login->GetUsuario();
-				usuario.GetCarrito()->ComprarLibro(libro);
+				String^ titulo = txtTitulo->Text;
+				String^ autor = txtAutor->Text;
+				String^ precio = txtPrecio->Text;
 
-				lvLibros->SelectedItems->Clear();
+				std::string tituloSTD = msclr::interop::marshal_as<string>(titulo);
+				std::string autorSTD = msclr::interop::marshal_as<string>(autor);
 
-				txtTitulo->Text = "";
-				txtAutor->Text = "";
-				txtPrecio->Text = "";
+				// Convertir de System::String a double
+				double precioSTD = 0.0;
+				if (Double::TryParse(precio, precioSTD))
+				{
+					// Conversión exitosa
+					Libro libro(tituloSTD, autorSTD, precioSTD);
+					Usuario usuario = login->GetUsuario();
+					usuario.GetCarrito()->ComprarLibro(libro);
 
-				UpdateBotonCarrito(usuario);
+					lvLibros->SelectedItems->Clear();
+
+					txtTitulo->Text = "";
+					txtAutor->Text = "";
+					txtPrecio->Text = "";
+
+					UpdateBotonCarrito(usuario);
+				}
+				else
+				{
+					// Manejar el caso en que la conversión a double no fue exitosa
+					MessageBox::Show("El precio no es un número válido.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				}
 			}
 			else
 			{
-				// Manejar el caso en que la conversión a double no fue exitosa
-				MessageBox::Show("El precio no es un número válido.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				MessageBox::Show("Eres un empleado, no puedes comprar libros");
 			}
+		
 
 		}
 
@@ -459,12 +467,20 @@ namespace FormLibreria {
 
 		Void btnCarrito_Click(Object^ sender, EventArgs^ e)
 		{
-			// Ventana Ver Carrito
-			fCarrito = gcnew FormCarrito(login);
 
-			this->Hide();
-			fCarrito->ShowDialog();
-			this->Show();
+			if (login->GetUsuario().GetPermiso() != permisoAdmin)
+			{
+				// Ventana Ver Carrito
+				fCarrito = gcnew FormCarrito(login);
+
+				this->Hide();
+				fCarrito->ShowDialog();
+				this->Show();
+			}
+			else
+			{
+				MessageBox::Show("Eres un empleado, no puedes comprar libros ni ver el carrito");
+			}
 		}
 
 
