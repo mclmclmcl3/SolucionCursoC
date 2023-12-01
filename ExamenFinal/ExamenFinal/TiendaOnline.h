@@ -16,14 +16,11 @@ namespace ExamenFinal {
 	using namespace System::Data;
 	using namespace System::Drawing;
 
-	/// <summary>
-	/// Resumen de TiendaOnline
-	/// </summary>
 	public ref class TiendaOnline : public System::Windows::Forms::Form
 	{
 		// Crear la conexión
 	public: MsqlConexion* conexion;
-	private: System::Windows::Forms::Button^ btnSelecion;
+
 	public:
 	public: Carrito* carrito;
 
@@ -31,16 +28,19 @@ namespace ExamenFinal {
 		TiendaOnline(void)
 		{
 			InitializeComponent();
+			// Inicializo el carrito para usarlo despues
 			carrito = new Carrito();
 
+			// Configuro a mi gusto el datagridview
 			MiDataGridView->ReadOnly = true;
-
-			conexion = new MsqlConexion(3306, "localhost", "root", "root", "ExamenFinal");
-
 			MiDataGridView->SelectionMode = DataGridViewSelectionMode::FullRowSelect;
 			MiDataGridView->MultiSelect = false;
 			MiDataGridView->ClearSelection();
 
+			// Inicio conexion con la BBDD
+			conexion = new MsqlConexion(3306, "localhost", "root", "root", "ExamenFinal");
+
+			// Relleno la datagridview
 			RellenarListadoLibros(conexion->LeerTodo());
 
 		}
@@ -113,23 +113,15 @@ namespace ExamenFinal {
 
 
 	private:
-		/// <summary>
-		/// Variable del diseñador necesaria.
-		/// </summary>
 		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Método necesario para admitir el Diseñador. No se puede modificar
-		/// el contenido de este método con el editor de código.
-		/// </summary>
 		void InitializeComponent(void)
 		{
 			this->PPanel = (gcnew System::Windows::Forms::Panel());
 			this->btnIrCarrito = (gcnew System::Windows::Forms::Button());
 			this->MiDataGridView = (gcnew System::Windows::Forms::DataGridView());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->btnSelecion = (gcnew System::Windows::Forms::Button());
 			this->PPanel->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->MiDataGridView))->BeginInit();
 			this->SuspendLayout();
@@ -171,6 +163,7 @@ namespace ExamenFinal {
 			this->MiDataGridView->Name = L"MiDataGridView";
 			this->MiDataGridView->Size = System::Drawing::Size(626, 320);
 			this->MiDataGridView->TabIndex = 1;
+			this->MiDataGridView->CellMouseClick += gcnew System::Windows::Forms::DataGridViewCellMouseEventHandler(this, &TiendaOnline::MiDataGridView_CellMouseClick);
 			// 
 			// label1
 			// 
@@ -185,22 +178,11 @@ namespace ExamenFinal {
 			this->label1->TabIndex = 2;
 			this->label1->Text = L"Selecciona un elemento de la Tabla";
 			// 
-			// btnSelecion
-			// 
-			this->btnSelecion->Location = System::Drawing::Point(783, 414);
-			this->btnSelecion->Name = L"btnSelecion";
-			this->btnSelecion->Size = System::Drawing::Size(110, 35);
-			this->btnSelecion->TabIndex = 3;
-			this->btnSelecion->Text = L"Seleccion";
-			this->btnSelecion->UseVisualStyleBackColor = true;
-			this->btnSelecion->Click += gcnew System::EventHandler(this, &TiendaOnline::btnSelecion_Click);
-			// 
 			// TiendaOnline
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(928, 461);
-			this->Controls->Add(this->btnSelecion);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->MiDataGridView);
 			this->Controls->Add(this->PPanel);
@@ -208,6 +190,7 @@ namespace ExamenFinal {
 				static_cast<System::Byte>(0)));
 			this->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
 			this->Name = L"TiendaOnline";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"TiendaOnline";
 			this->PPanel->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->MiDataGridView))->EndInit();
@@ -227,36 +210,41 @@ namespace ExamenFinal {
 			this->Show();
 
 		}
-	
 
-		Void btnSelecion_Click(Object^ sender, EventArgs^ e)
+
+		Void MiDataGridView_CellMouseClick(Object^ sender, Windows::Forms::DataGridViewCellMouseEventArgs^ e)
 		{
-			// Boton para la seleccion del articulo.
-
-			if (MiDataGridView->SelectedCells->Count > 0)
+			// Chequeo que he seleccionado un elemento de la lista
+			if (e->RowIndex >= 0 && e->ColumnIndex >= 0 && e->RowIndex < MiDataGridView->RowCount)
 			{
-				int rowIndex = MiDataGridView->SelectedCells[0]->RowIndex;
+				// Extraigo sus datos
+				Object^ _id = MiDataGridView->Rows[e->RowIndex]->Cells[0]->Value;
+				Object^ _titulo = MiDataGridView->Rows[e->RowIndex]->Cells[1]->Value;
+				Object^ _autor = MiDataGridView->Rows[e->RowIndex]->Cells[2]->Value;
+				Object^ _precio = MiDataGridView->Rows[e->RowIndex]->Cells[3]->Value;
 
-				// Convierto los datos
-				int id = System::Convert::ToInt32(MiDataGridView->Rows[rowIndex]->Cells[0]->Value);
-				System::String^ titulo = dynamic_cast<System::String^>(MiDataGridView->Rows[rowIndex]->Cells[1]->Value);
-				System::String^ autor = dynamic_cast<System::String^>(MiDataGridView->Rows[rowIndex]->Cells[2]->Value);
-				double precio = System::Convert::ToDouble(MiDataGridView->Rows[rowIndex]->Cells[3]->Value);
+				// Verificar si los valores no son nulos ni DBNull antes de realizar conversiones
+				if (_id != nullptr && _titulo != nullptr && _autor != nullptr && _precio != nullptr &&
+					_id != DBNull::Value && _titulo != DBNull::Value && _autor != DBNull::Value && _precio != DBNull::Value)
+				{
+					// Los convierto para crear el objeto libro
+					int id = System::Convert::ToInt32(_id);
+					std::string titulo = msclr::interop::marshal_as<std::string>(_titulo->ToString());
+					std::string autor = msclr::interop::marshal_as<std::string>(_autor->ToString());
+					double precio = System::Convert::ToDouble(_precio);
 
-				// Creo un libro con los datos leidos
-				Libro* libro = new Libro(id, msclr::interop::marshal_as<std::string>(titulo), msclr::interop::marshal_as<std::string>(autor), precio);
+					Libro* libro = new Libro(id, titulo, autor, precio);
 
-				// Mando los datos al formulario fichalibro
-				FichaLibro^ ficha = gcnew FichaLibro(libro, carrito);
-				this->Hide();
-				ficha->ShowDialog();
-				this->Show();
+					// Mando los datos al formulario fichalibro
+					FichaLibro^ ficha = gcnew FichaLibro(libro, carrito);
+					this->Hide();
+					ficha->ShowDialog();
+					this->Show();
 
-				// Libero la memoria del libro
-				delete libro;
-				// MessageBox::Show(titulo + " " + autor);
+					// Libero la memoria del libro
+					delete libro;
+				}
 			}
-			// Limpio la seleccion del DataGridView
 			MiDataGridView->ClearSelection();
 
 			// Vuelvo a Rellenar

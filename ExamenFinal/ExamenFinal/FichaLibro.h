@@ -174,6 +174,7 @@ namespace ExamenFinal {
 				static_cast<System::Byte>(0)));
 			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"FichaLibro";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"FichaLibro";
 			this->ResumeLayout(false);
 			this->PerformLayout();

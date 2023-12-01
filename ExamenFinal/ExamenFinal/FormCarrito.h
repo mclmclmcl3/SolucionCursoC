@@ -300,6 +300,7 @@ namespace ExamenFinal {
 				static_cast<System::Byte>(0)));
 			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"FormCarrito";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"FormCarrito";
 			this->ResumeLayout(false);
 			this->PerformLayout();
