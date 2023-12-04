@@ -6,6 +6,7 @@
 #include "FormCarrito.h"
 #include <iostream>
 #include <msclr/marshal_cppstd.h>
+#include "FormAdministrador.h"
 
 namespace FormLibreria {
 
@@ -20,12 +21,15 @@ namespace FormLibreria {
 	{
 	public: FormLogin^ fLogin;
 	public: FormCarrito^ fCarrito;
+	public: FormAdministrador^ fAdmin;
 
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::Label^ lblTitulo;
 
 	private: System::Windows::Forms::Button^ btnCarrito;
-	private: System::Windows::Forms::Button^ btnComprar;
+	private: System::Windows::Forms::Button^ btnLogotut;
+
+
 	private: System::Windows::Forms::Button^ btnAdmin;
 
 	public:
@@ -51,6 +55,7 @@ namespace FormLibreria {
 	private: System::Windows::Forms::Button^ btnCarritoUsuario;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ lblNombreUsuario;
+
 	public:
 		Libreria* libreria;
 
@@ -112,7 +117,7 @@ namespace FormLibreria {
 		{
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->btnAdmin = (gcnew System::Windows::Forms::Button());
-			this->btnComprar = (gcnew System::Windows::Forms::Button());
+			this->btnLogotut = (gcnew System::Windows::Forms::Button());
 			this->btnCarrito = (gcnew System::Windows::Forms::Button());
 			this->lblTitulo = (gcnew System::Windows::Forms::Label());
 			this->lvLibros = (gcnew System::Windows::Forms::ListView());
@@ -141,7 +146,7 @@ namespace FormLibreria {
 			this->panel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
 				static_cast<System::Int32>(static_cast<System::Byte>(64)));
 			this->panel1->Controls->Add(this->btnAdmin);
-			this->panel1->Controls->Add(this->btnComprar);
+			this->panel1->Controls->Add(this->btnLogotut);
 			this->panel1->Controls->Add(this->btnCarrito);
 			this->panel1->Controls->Add(this->lblTitulo);
 			this->panel1->Location = System::Drawing::Point(-2, 0);
@@ -161,17 +166,17 @@ namespace FormLibreria {
 			this->btnAdmin->UseVisualStyleBackColor = false;
 			this->btnAdmin->Click += gcnew System::EventHandler(this, &FormLibreria::btnAdmin_Click);
 			// 
-			// btnComprar
+			// btnLogotut
 			// 
-			this->btnComprar->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+			this->btnLogotut->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
 				static_cast<System::Int32>(static_cast<System::Byte>(224)));
-			this->btnComprar->Location = System::Drawing::Point(32, 169);
-			this->btnComprar->Name = L"btnComprar";
-			this->btnComprar->Size = System::Drawing::Size(180, 41);
-			this->btnComprar->TabIndex = 3;
-			this->btnComprar->Text = L"Comprar";
-			this->btnComprar->UseVisualStyleBackColor = false;
-			this->btnComprar->Click += gcnew System::EventHandler(this, &FormLibreria::btnComprar_Click);
+			this->btnLogotut->Location = System::Drawing::Point(34, 428);
+			this->btnLogotut->Name = L"btnLogotut";
+			this->btnLogotut->Size = System::Drawing::Size(180, 41);
+			this->btnLogotut->TabIndex = 3;
+			this->btnLogotut->Text = L"Logout";
+			this->btnLogotut->UseVisualStyleBackColor = false;
+			this->btnLogotut->Click += gcnew System::EventHandler(this, &FormLibreria::btnLogotut_Click);
 			// 
 			// btnCarrito
 			// 
@@ -206,7 +211,7 @@ namespace FormLibreria {
 					this->Precio
 			});
 			this->lvLibros->HideSelection = false;
-			this->lvLibros->Location = System::Drawing::Point(288, 74);
+			this->lvLibros->Location = System::Drawing::Point(288, 70);
 			this->lvLibros->Name = L"lvLibros";
 			this->lvLibros->Size = System::Drawing::Size(654, 218);
 			this->lvLibros->TabIndex = 1;
@@ -217,12 +222,12 @@ namespace FormLibreria {
 			// Titulo
 			// 
 			this->Titulo->Text = L"Titulo";
-			this->Titulo->Width = 320;
+			this->Titulo->Width = 363;
 			// 
 			// Autor
 			// 
 			this->Autor->Text = L"Autor";
-			this->Autor->Width = 225;
+			this->Autor->Width = 186;
 			// 
 			// Precio
 			// 
@@ -394,35 +399,43 @@ namespace FormLibreria {
 		}
 		Void btnCarritoUsuario_Click(Object^ sender, EventArgs^ e)
 		{
-			String^ titulo = txtTitulo->Text;
-			String^ autor = txtAutor->Text;
-			String^ precio = txtPrecio->Text;
-
-			std::string tituloSTD = msclr::interop::marshal_as<string>(titulo);
-			std::string autorSTD = msclr::interop::marshal_as<string>(autor);
-
-			// Convertir de System::String a double
-			double precioSTD = 0.0;
-			if (Double::TryParse(precio, precioSTD))
+			if (login->GetUsuario().GetPermiso() != permisoAdmin)
 			{
-				// Conversión exitosa
-				Libro libro(tituloSTD, autorSTD, precioSTD);
-				Usuario usuario = login->GetUsuario();
-				usuario.GetCarrito()->ComprarLibro(libro);
+				String^ titulo = txtTitulo->Text;
+				String^ autor = txtAutor->Text;
+				String^ precio = txtPrecio->Text;
 
-				lvLibros->SelectedItems->Clear();
+				std::string tituloSTD = msclr::interop::marshal_as<string>(titulo);
+				std::string autorSTD = msclr::interop::marshal_as<string>(autor);
 
-				txtTitulo->Text = "";
-				txtAutor->Text = "";
-				txtPrecio->Text = "";
+				// Convertir de System::String a double
+				double precioSTD = 0.0;
+				if (Double::TryParse(precio, precioSTD))
+				{
+					// Conversión exitosa
+					Libro libro(tituloSTD, autorSTD, precioSTD);
+					Usuario usuario = login->GetUsuario();
+					usuario.GetCarrito()->ComprarLibro(libro);
 
-				UpdateBotonCarrito(usuario);
+					lvLibros->SelectedItems->Clear();
+
+					txtTitulo->Text = "";
+					txtAutor->Text = "";
+					txtPrecio->Text = "";
+
+					UpdateBotonCarrito(usuario);
+				}
+				else
+				{
+					// Manejar el caso en que la conversión a double no fue exitosa
+					MessageBox::Show("El precio no es un número válido.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				}
 			}
 			else
 			{
-				// Manejar el caso en que la conversión a double no fue exitosa
-				MessageBox::Show("El precio no es un número válido.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				MessageBox::Show("Eres un empleado, no puedes comprar libros");
 			}
+		
 
 		}
 
@@ -440,7 +453,12 @@ namespace FormLibreria {
 		{
 			// Ventana Administracion
 			if (login->GetUsuario().GetPermiso() == permisoAdmin)
-				MessageBox::Show("Tienes permiso de administrador");
+			{
+				fAdmin = gcnew FormAdministrador(libreria);
+				this->Hide();
+				fAdmin->ShowDialog();
+				this->Show();
+			}
 			else
 				MessageBox::Show("(NO) Tienes permiso de administrador");
 
@@ -449,25 +467,37 @@ namespace FormLibreria {
 
 		Void btnCarrito_Click(Object^ sender, EventArgs^ e)
 		{
-			// Ventana Ver Carrito
-			fCarrito = gcnew FormCarrito(login);
 
-			this->Hide();
-			fCarrito->ShowDialog();
-			this->Show();
+			if (login->GetUsuario().GetPermiso() != permisoAdmin)
+			{
+				// Ventana Ver Carrito
+				fCarrito = gcnew FormCarrito(login);
+
+				this->Hide();
+				fCarrito->ShowDialog();
+				this->Show();
+			}
+			else
+			{
+				MessageBox::Show("Eres un empleado, no puedes comprar libros ni ver el carrito");
+			}
 		}
 
 
-
-		Void btnComprar_Click(Object^ sender, EventArgs^ e)
-		{
-			// Ventana Comprar
-		}
 
 
 		Void FormLibreria_Activated(Object^ sender, EventArgs^ e)
 		{
 			UpdateBotonCarrito(login->GetUsuario());
+		}
+		Void btnLogotut_Click(Object^ sender, EventArgs^ e) 
+		{
+			login->Logout();
+
+			fLogin = gcnew FormLogin(login);
+			this->Hide();
+			fLogin->ShowDialog();
+			this->Show();
 		}
 	};
 }

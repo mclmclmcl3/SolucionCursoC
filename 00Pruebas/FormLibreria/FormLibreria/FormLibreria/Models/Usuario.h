@@ -34,7 +34,10 @@ public:
 		SetPermiso(permisoUsuario);
 	}
 	// destructor por defecto
-	~Usuario() = default;
+	~Usuario()
+	{
+		carrito = nullptr;
+	}
 
 	// Getter
 	std::string GetEmail() const { return email; }

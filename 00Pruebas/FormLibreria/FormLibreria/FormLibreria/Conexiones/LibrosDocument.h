@@ -57,7 +57,7 @@ public:
 			conexion << libro.GetAutor() << ",";
 			conexion << std::to_string(libro.GetPrecio()) << "\n";
 
-			MessageBox::Show("Datos guardados con exito.\n");
+			//MessageBox::Show("Datos guardados con exito.\n");
 		}
 		else
 			MessageBox::Show("No se a podido abir el archivo para escritura.\n");
@@ -144,16 +144,16 @@ public:
 	// Escribo un vecto de libros en el archivo
 	void EscribirLibros(const std::vector<Libro>& libros)
 	{
-		std::ofstream conexion(nombreArchivo + ".txt", ios::trunc);  // Abre el archivo en modo de truncamiento para borrar su contenido y escribir el archivo por completo
+		std::ofstream conexion(nombreArchivo + ".csv", ios::trunc);  // Abre el archivo en modo de truncamiento para borrar su contenido y escribir el archivo por completo
 
 		if (conexion.is_open())
 		{
 			for (const Libro& libro : libros)
 			{
 				// Escribir el correo electrónico y la contraseña en el archivo
-				conexion << "Titulo:" << libro.GetTitulo() << "\n";
-				conexion << "Autor:" << libro.GetAutor() << "\n";
-				conexion << "Precio:" << std::to_string(libro.GetPrecio()) << "\n";
+				conexion << libro.GetTitulo() << ",";
+				conexion << libro.GetAutor() << ",";
+				conexion << std::to_string(libro.GetPrecio()) << "\n";
 			}
 			conexion.close();
 		}
