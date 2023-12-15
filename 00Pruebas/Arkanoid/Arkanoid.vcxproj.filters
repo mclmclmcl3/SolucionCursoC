@@ -8,19 +8,50 @@
     <Filter Include="Clases">
       <UniqueIdentifier>{ff847b48-2002-4c59-af28-2f84fd67a1a6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Clases\Bloques">
+      <UniqueIdentifier>{b9304790-9267-4fd3-bb51-9a7bfd833ae0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Inicio.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Dependencias.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
+    <ClInclude Include="Dependencias.h" />
     <ClInclude Include="Base.h">
-      <Filter>Archivos de encabezado</Filter>
+      <Filter>Clases</Filter>
+    </ClInclude>
+    <ClInclude Include="Jugador.h">
+      <Filter>Clases</Filter>
     </ClInclude>
     <ClInclude Include="Pelota.h">
-      <Filter>Archivos de encabezado</Filter>
+      <Filter>Clases</Filter>
     </ClInclude>
+    <ClInclude Include="Juego.h">
+      <Filter>Clases</Filter>
+    </ClInclude>
+    <ClInclude Include="Bloque.h">
+      <Filter>Clases\Bloques</Filter>
+    </ClInclude>
+    <ClInclude Include="BloqueAmarillo.h">
+      <Filter>Clases\Bloques</Filter>
+    </ClInclude>
+    <ClInclude Include="BloqueBlanco.h">
+      <Filter>Clases\Bloques</Filter>
+    </ClInclude>
+    <ClInclude Include="BloqueGris.h">
+      <Filter>Clases\Bloques</Filter>
+    </ClInclude>
+    <ClInclude Include="BloqueNaranja.h">
+      <Filter>Clases\Bloques</Filter>
+    </ClInclude>
+    <ClInclude Include="BloqueRojo.h">
+      <Filter>Clases\Bloques</Filter>
+    </ClInclude>
+    <ClInclude Include="Bloques.h">
+      <Filter>Clases</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Inicio.cpp" />
   </ItemGroup>
 </Project>

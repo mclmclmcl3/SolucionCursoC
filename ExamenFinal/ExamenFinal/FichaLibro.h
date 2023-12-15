@@ -181,6 +181,7 @@ namespace ExamenFinal {
 
 		}
 
+		// Conversor de string
 		std::string StringToSTDstring(String^ texto)
 		{
 			return msclr::interop::marshal_as < std::string>(texto);

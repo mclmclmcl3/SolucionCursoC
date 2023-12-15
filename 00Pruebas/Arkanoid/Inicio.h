@@ -1,4 +1,5 @@
 #pragma once
+#include "Juego.h"
 
 namespace Arkanoid {
 
@@ -14,32 +15,41 @@ namespace Arkanoid {
 	/// </summary>
 	public ref class Inicio : public System::Windows::Forms::Form
 	{
+		Juego* juego;
+		Graphics^ g;
+
 	public:
 		Inicio(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: agregar código de constructor aquí
-			//
+
+			g = this->CreateGraphics();
+			juego = new Juego(g);
 		}
 
 	protected:
-		/// <summary>
-		/// Limpiar los recursos que se estén usando.
-		/// </summary>
 		~Inicio()
 		{
 			if (components)
 			{
 				delete components;
 			}
+			delete juego;
 		}
+
+
+
+	private: System::Windows::Forms::Timer^ clock;
+	protected:
+
+	protected:
+	private: System::ComponentModel::IContainer^ components;
 
 	private:
 		/// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -48,12 +58,35 @@ namespace Arkanoid {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->components = gcnew System::ComponentModel::Container();
-			this->Size = System::Drawing::Size(300,300);
-			this->Text = L"Inicio";
-			this->Padding = System::Windows::Forms::Padding(0);
+			this->components = (gcnew System::ComponentModel::Container());
+			this->clock = (gcnew System::Windows::Forms::Timer(this->components));
+			this->SuspendLayout();
+			// 
+			// clock
+			// 
+			this->clock->Enabled = true;
+			this->clock->Interval = 33;
+			this->clock->Tick += gcnew System::EventHandler(this, &Inicio::clock_Tick);
+			// 
+			// Inicio
+			// 
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->ClientSize = System::Drawing::Size(284, 261);
+			this->Name = L"Inicio";
+			this->Text = L"Inicio";
+			this->ResumeLayout(false);
+
 		}
 #pragma endregion
+
+		Void clock_Tick(Object^ sender, EventArgs^ e)
+		{
+			g->Clear(Color::Black);
+			juego->Mover(g);
+			juego->Mostrar(g);
+		}
+
+
 	};
 }

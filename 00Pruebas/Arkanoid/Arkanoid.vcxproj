@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -121,11 +121,28 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Base.h" />
+    <ClInclude Include="Bloque.h" />
+    <ClInclude Include="BloqueAmarillo.h" />
+    <ClInclude Include="BloqueBlanco.h" />
+    <ClInclude Include="BloqueGris.h" />
+    <ClInclude Include="BloqueNaranja.h" />
+    <ClInclude Include="BloqueRojo.h" />
+    <ClInclude Include="Bloques.h" />
     <ClInclude Include="Dependencias.h" />
     <ClInclude Include="Inicio.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Juego.h" />
+    <ClInclude Include="Jugador.h" />
     <ClInclude Include="Pelota.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Inicio.resx">
+      <DependentUpon>Inicio.h</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Inicio.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
