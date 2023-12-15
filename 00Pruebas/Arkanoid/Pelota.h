@@ -14,9 +14,10 @@ public:
     {
         x = rand() % (int)g->VisibleClipBounds.Width;
         y = rand() % (int)g->VisibleClipBounds.Height;
+        ancho = alto = 20;
 
-        velocidadLineal = 2.0f;  // Puedes ajustar la velocidad lineal según tus necesidades
-        angulo = 45.0f;
+        velocidadLineal = 5.0f;  // Puedes ajustar la velocidad lineal según tus necesidades
+        angulo = -30.0f;
         velocidadAngular = 0.1f;  // Puedes ajustar la velocidad angular según tus necesidades
     }
 
@@ -31,10 +32,20 @@ public:
         {
             x += dx;
         }
+        else
+        {
+            // Refleja la pelota y ajusta el ángulo para simular el rebote
+            angulo = 180 - angulo;
+        }
 
         if (y + dy >= 0 && (y + alto + dy) < g->VisibleClipBounds.Height)
         {
             y += dy;
+        }
+        else
+        {
+            // Refleja la pelota y ajusta el ángulo para simular el rebote
+            angulo = -angulo;
         }
 
         // Actualiza el ángulo
@@ -42,14 +53,8 @@ public:
 
         // Puedes agregar límites al ángulo si es necesario
         // Por ejemplo: if (angulo > 360) angulo -= 360;
-
-        // Puedes utilizar la matriz de transformación para rotar la pelota
-        Drawing2D::Matrix^ matrizRotacion = gcnew Drawing2D::Matrix();
-        matrizRotacion->RotateAt(angulo, Point(x + ancho / 2, y + alto / 2));
-
-        // Aplica la matriz de transformación a los gráficos utilizando Transform
-        g->Transform = matrizRotacion;
     }
+
 
     void Mostrar(Graphics^ g)
     {
@@ -57,6 +62,6 @@ public:
         g->ResetTransform();
 
         // Dibuja la pelota (sin la transformación de rotación aplicada)
-        g->FillRectangle(Brushes::Green, Area());
+        g->FillEllipse(Brushes::White, Area());
     }
 };
